@@ -6,8 +6,9 @@ const WEATHER_API_DOMAIN = 'http://api.weatherstack.com/'
 const currentWeatherURL = `${WEATHER_API_DOMAIN}/current?access_key=${WEATHER_API_KEY}&query=28.7041,77.1025`
 
 request({
-    url: currentWeatherURL
+    url: currentWeatherURL,
+    json: true
 }, (error, response)=>{
-    const responseData = JSON.parse(response.body)
-    console.log(responseData)
+    // console.log(response.body.current)
+    console.log(`It is currently ${response.body.current.temperature} but feels like ${response.body.current.feelslike}.`)
 })
