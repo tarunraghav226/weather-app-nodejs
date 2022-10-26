@@ -19,6 +19,10 @@ app.get('/first', (req, res) => {
     })
 })
 
+app.get('*', (req, res) => {
+    res.send('404 Not found')
+})
+
 app.listen(3000, ()=>{
     console.log("Server is up on port 3000")
 })
